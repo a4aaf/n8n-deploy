@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: n8n
+    env: docker
+    repo: https://github.com/n8n-io/n8n.git
+    plan: free
+    healthCheckPath: /healthz
+    envVars:
+      - key: N8N_HOST
+        generateValue: true
+      - key: NODE_ENV
+        value: production
+      - key: WEBHOOK_URL
+        generateValue: true
+      - key: GENERIC_TIMEZONE
+        value: Africa/Cairo
